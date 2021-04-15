@@ -32,13 +32,13 @@ export AZURE_LOCATION_SHORT=ae
 #####################################
 # Resource Group for the Deployment #
 #####################################
-export CREATE_RG=true
+export CREATE_RG=false
 export RESOURCE_GROUP=rg-ae-stg-myapp-01
 
 ######################################
 # Vnet and Subnet for the Deployment #
 ######################################
-export CREATE_VNET_SNET=true
+export CREATE_VNET_SNET=false
 export VNET_NAME=vnet-ae-stg-myapp-01
 export ADDRESS_PRIFIX="10.6.0.0/16"
 
@@ -62,7 +62,7 @@ export NSG_MGMT_NAME=nsg-ae-stg-myapp-mgmt-02
 ###################################
 # Key Vault with Private Endpoint #
 ###################################
-export CREATE_KV_SN=true
+export CREATE_KV_SN=false
 export KV_NAME=kv-ae-stg-myapp-01
 
 export KV_PEP_NAME=pep-ae-stg-myapp-kv-01
@@ -74,7 +74,7 @@ export KV_DNS_RECORD_SET=@
 #########################################
 # Redis for Cache with Private Endpoint #
 #########################################
-export CREATE_REDIS=true
+export CREATE_REDIS=false
 export REDIS_DNS_NAME=redisaestgmyapp01
 
 #Use C1 Standard for Production
@@ -90,15 +90,15 @@ export REDIS_DNS_RECORD_SET=@
 ############################
 # Postgres Basic (STAGING) #
 ############################
-#export CREATE_POSTGRES_BASIC=true
-export CREATE_POSTGRES=true
+#export CREATE_POSTGRES_BASIC=false
+export CREATE_POSTGRES=false
 
 export POSTGRES_NAME=psql-ae-stg-myapp-01
 export ADMIN_USER=myappadmin
 export POSTGRES_SKU_NAME=GP_Gen5_2
 export GEO_REDUNDANT=Disabled
 
-#export POSTGRES_VNET_RULE=true
+#export POSTGRES_VNET_RULE=false
 #export POSTGRES_VNET_RULE_NAME=psql-rule-myapp-01
 
 export POSTGRES_PEP_NAME=pep-ae-stg-myapp-psql-01
@@ -111,7 +111,7 @@ export POSTGRES_DNS_RECORD_SET=@
 # Storage Account LRS - Selected Network (STAGING) #
 # TODO: [Review - Allow Blob public access]        #
 ####################################################
-export CREATE_STORAGE_ACCOUNT=true
+export CREATE_STORAGE_ACCOUNT=false
 export STORAGE_ACCOUNT_NAME=staestgmyapp01
 export STORAGE_SKU=Standard_LRS
 
@@ -121,7 +121,7 @@ export FILE_SHARE=myapp01
 ##################################################
 # Storage Account LRS - Public Network (STAGING) #
 ##################################################
-export CREATE_PUBLIC_CONTAINER=true
+export CREATE_PUBLIC_CONTAINER=false
 
 export PUBLIC_STORAGE_ACCOUNT_NAME=staestgmyapp02
 export PUBLIC_STORAGE_SKU=Standard_LRS
@@ -131,37 +131,37 @@ export PUBLIC_CONTAINER_NAME=\$web
 ######################
 # Container Registry #
 ######################
-export CREATE_ACR=true
+export CREATE_ACR=false
 export ACR_NAME=craestgmyapp01
 
 ##################################
 # Azure Kubernetes Service (AKS) #
 ##################################
-export CREATE_AKS=true
+export CREATE_AKS=false
 export AKS_NAME=aks-ae-stg-myapp-01
 export ADMIN_GROUP_NAME='AKS Staging Admins'
 
 #Leave it false always
 export AKS_ADMIN_ACCESS=false
 
-export ADD_SPOT_NODEPOOL=true
-export ASSIGN_NW_CONTRIBUTOR_ROLE=true
-export AAD_POD_IDENTITY=true
+export ADD_SPOT_NODEPOOL=false
+export ASSIGN_NW_CONTRIBUTOR_ROLE=false
+export AAD_POD_IDENTITY=false
 
 export LB_PRIVATEIP="10.6.3.250"
-export INSTALL_INGRESS_CONTROLLER=true
-export CLEANUP_DEFAULT_NS=true
+export INSTALL_INGRESS_CONTROLLER=false
+export CLEANUP_DEFAULT_NS=false
 
-export SETUP_AD_GROUPS=true
-export CREATE_AD_GROUPS=true
+export SETUP_AD_GROUPS=false
+export CREATE_AD_GROUPS=false
 export DEVOPS_GROUP_NAME="AKS DevOps Staging Users"
 export DEV_GROUP_NAME="AKS Staging Users"
 
 #######################
 # Application Gateway #
 #######################
-export CREATE_PUBLIC_IP=true
-export CREATE_AG=true
+export CREATE_PUBLIC_IP=false
+export CREATE_AG=false
 
 export AG_PUBLICIP_NAME=pip-ae-stg-myapp-ag-01
 export AG_PUBLICIP_DNS=app-ae-stg
@@ -172,14 +172,14 @@ export AG_PRIVATE_IP="10.6.4.120"
 #######################
 # Install Prometheus  #
 #######################
-export INSTALL_PROMETHEUS=true
-export VERIFY_DEFAULT_NGINX=true
+export INSTALL_PROMETHEUS=false
+export VERIFY_DEFAULT_NGINX=false
 
 ###########
 # Bastion #
 ###########
-export CREATE_BASTION_PUBLIC_IP=true
-export CREATE_BASTION=true
+export CREATE_BASTION_PUBLIC_IP=false
+export CREATE_BASTION=false
 
 export BASTION_PUBLICIP_NAME=pip-ae-stg-myapp-bastion-01
 export BASTION_PUBLICIP_DNS=app-ae-stg-bastion
@@ -188,11 +188,11 @@ export BASTION_NAME=bastion-ae-stg-myapp-01
 #######################
 # Lock Resource Group #
 #######################
-export LOCK_RG=true
+export LOCK_RG=false
 export LOCK_NAME=lck-rg-ae-stg-myapp-01
 
 #######################
 # Destroy Parameters  #
 #######################
-export DELETE_AD_GROUPS=true
-export PURGE_KV=true
+export DELETE_AD_GROUPS=false
+export PURGE_KV=false
