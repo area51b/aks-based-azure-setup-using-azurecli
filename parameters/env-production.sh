@@ -140,8 +140,8 @@ export CREATE_AKS=false
 export AKS_NAME=aks-ae-prod-myapp-01
 export ADMIN_GROUP_NAME='AKS Production Admins'
 
-#Leave it false always
-export AKS_ADMIN_ACCESS=false
+#Leave it 'TRUE' always to get admin access
+export AKS_ADMIN_ACCESS=true
 
 export ADD_SPOT_NODEPOOL=false
 export ASSIGN_NW_CONTRIBUTOR_ROLE=false
