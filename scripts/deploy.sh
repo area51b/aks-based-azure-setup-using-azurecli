@@ -867,7 +867,7 @@ then
     export IDENTITY_NAME="${AKS_NAME}"
     echo 'Managed AKS Identity Name: '$IDENTITY_NAME
 
-    export IDENTITY_CLIENT_ID="$(az ad sp list --query "[?displayName=='${IDENTITY_NAME}'].appId | [0]" --output tsv)"
+    export IDENTITY_CLIENT_ID="$(az ad sp list --all --query "[?displayName=='${IDENTITY_NAME}'].appId | [0]" --output tsv)"
     echo 'Managed AKS Identity Id1: '$IDENTITY_CLIENT_ID
 
     #Assign Network Contributor Role for 
