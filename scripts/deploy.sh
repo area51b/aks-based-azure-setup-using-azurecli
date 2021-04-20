@@ -963,12 +963,14 @@ then
                 --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
                 --set controller.service.externalTrafficPolicy="Local" \
                 --wait --timeout 30m0s
+    
+    kubectl create namespace myapp --dry-run=client -o yaml | kubectl apply -f -
 
     #Sample NGINX deployment on default namespace
     kubectl create -f ./parameters/sample-deployment.yaml
 
     #Sample NGINX Service on default namespace
-    kubectl expose deployment/nginx-deployment --name=nginx-service
+    kubectl expose deployment/nginx-deployment --name=nginx-service --namespace=myapp
 
     #Sample Ingress Resource to test the NGINX Deployment on default namespace
     kubectl create -f ./parameters/ingress_resource.yaml
@@ -1011,7 +1013,7 @@ then
     export APPDEVOPS_OBJECTID="$(az ad group show --group $DEVOPS_GROUP_NAME --query objectId -o tsv)"
     export APPDEV_OBJECTID="$(az ad group show --group $DEV_GROUP_NAME --query objectId -o tsv)"
 
-    kubectl create ns myapp
+    kubectl create namespace myapp --dry-run=client -o yaml | kubectl apply -f -
 
     #Create ClusterRole for Cluster wide permission
     kubectl apply -f ./parameters/aks-cluster-role.yaml
@@ -1099,7 +1101,7 @@ then
         kubectl delete -f ./parameters/sample-deployment.yaml
 
         #Delete sample NGINX Service on default namespace
-        kubectl delete svc nginx-service
+        kubectl delete svc nginx-service --namespace=myapp
     fi
 fi
 
@@ -1116,7 +1118,7 @@ then
         --dns-name $BASTION_PUBLICIP_DNS \
         --allocation-method Static \
         --sku Standard \
-#        --zone 1 \
+        --zone 1 2 3 \
         --tags 'Name='$BASTION_PUBLICIP_NAME 'Environment='$ENV_TAG
 
 else
