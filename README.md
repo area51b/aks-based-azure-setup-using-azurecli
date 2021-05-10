@@ -1,31 +1,25 @@
-# README #
-TODO
-This README would normally document whatever steps are necessary to get your application up and running.
-
-### What is this repository for? ###
-
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
-
-### How do I get set up? ###
-
-* Summary of set up
+# Standard Production Ready Cloud Setup on Azure (with AKS) #
+This repo is for standard 3-tier microservice based application platform setup on Azure using Azure CLI (IaC). IaC includes only Azure components and make it ready for any kubernetes based application to be deployed (application deployment is not in the scope). <br/><br/>
 ![plot](./architecture/network_topology.png)
 
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+## How do I get set up? ##
 
-### Contribution guidelines ###
+> **Configuration**  <br/>
+Update paramters/env-{env}.sh file for required azure resources and configuration. <br/>
+Note: Resource creation in Azure incur cost, review the configuration before running the script.
 
-* Writing tests
-* Code review
-* Other guidelines
+> **Usage**  <br/>
+./run.sh [OPTIONS]
 
-### Who do I talk to? ###
+> **Options** <br/>
+-c, --command     Command for script [deploy | destroy] <br/>
+-e, --env         Environment for the script [staging | production] <br/>
+-l, --log         Print log to file <br/>
+-s, --strict      Exit script with null variables.  i.e 'set -o nounset' <br/>
+-d, --debug       Runs script in BASH debug mode (set -x) <br/>
+-h, --help        Display this help and exit <br/>
+--version         Output version information and exit <br/>
 
-* Repo owner or admin
-* Other community or team contact
+> **Example** <br/>
+$./run.sh -c deploy -e staging -l <br/>
+$./run.sh -c destroy -e staging -l <br/>
