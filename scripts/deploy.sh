@@ -951,11 +951,15 @@ then
     helm3 repo add stable https://charts.helm.sh/stable
     helm3 repo update
 
+    #Custom Ingress Class
+    kubectl create -f ./parameters/ingress-class.yaml
+
     cat ./parameters/internal-ingress.yaml | sed "s/{{LB_PRIVATEIP}}/$LB_PRIVATEIP/g" \
             | helm3 install nginx-ingress ingress-nginx/ingress-nginx \
                 --namespace kube-system \
                 -f - \
                 --set rbac.create=true \
+                --set controller.ingressClass=external-lb \
                 --set controller.replicaCount=2 \
                 --set controller.stats.enabled=true \
                 --set controller.metrics.enabled=true \

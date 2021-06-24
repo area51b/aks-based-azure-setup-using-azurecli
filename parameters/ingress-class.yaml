@@ -1,0 +1,10 @@
+apiVersion: networking.k8s.io/v1
+kind: IngressClass
+metadata:
+  name: external-lb
+  namespace: ingress
+spec:
+  controller: k8s.io/ingress-nginx
+  parameters:
+    kind: IngressParameters
+    name: external-lb

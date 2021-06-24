@@ -4,7 +4,7 @@ metadata:
   name: myapp-ingress
   namespace: myapp
   annotations:
-    kubernetes.io/ingress.class: nginx
+    kubernetes.io/ingress.class: external-lb
     nginx.ingress.kubernetes.io/rewrite-target: /
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
