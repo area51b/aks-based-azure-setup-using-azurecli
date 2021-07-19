@@ -11,4 +11,4 @@ subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: Group
   namespace: myapp
-  name: {{APPDEV_OBJECTID}}
+  name: {{READONLY_OBJECTID}}

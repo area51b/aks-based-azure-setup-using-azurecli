@@ -4,11 +4,6 @@ metadata:
   name: pod-reader
   namespace: myapp
 rules:
-- apiGroups: ["", "extensions", "apps"]
-  resources: ["*"]
-  verbs: ["*"]
-- apiGroups: ["batch"]
-  resources:
-  - jobs
-  - cronjobs
-  verbs: ["*"]
+- apiGroups: [""] # "" indicates the core API group
+  resources: ["pods", "pods/log"]
+  verbs: ["get", "watch", "list"]
