@@ -1,0 +1,25 @@
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: devops-cluster-read-access
+rules:
+- apiGroups: ["", "extensions", "apps"]
+  resources:
+  - pods
+  - pods/log
+  - deployments
+  - nodes
+  - services
+  - services/proxy
+  verbs: ["get", "watch", "list"]
+- apiGroups: ["batch"]
+  resources:
+  - jobs
+  - cronjobs
+  verbs: ["get", "watch", "list"]
+- apiGroups:
+    - metrics.k8s.io
+  resources:
+    - pods
+    - nodes
+  verbs: ["get", "watch", "list"]
